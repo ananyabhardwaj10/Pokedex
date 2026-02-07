@@ -11,6 +11,7 @@ type config struct {
 	pokeapiClient pokeapi.Client 
 	nextLocationUrl *string 
 	previousLocationUrl *string
+	caughtPokemon map[string]pokeapi.Pokemon 
 }
 
 func startRepl (c *config) {
@@ -25,7 +26,7 @@ func startRepl (c *config) {
 		args := words[1:]
 		command, ok := getCommands()[cmd]
 		if ok {
-			err := command.callback(c, args)
+			err := command.callback(c, args...)
 			if err != nil {
 				fmt.Println(err)
 			}

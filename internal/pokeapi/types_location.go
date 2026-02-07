@@ -18,3 +18,4 @@ type LocationArea struct {
 		} `json:"pokemon"`
 	} `json:"pokemon_encounters"`
 }
+
